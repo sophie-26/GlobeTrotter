@@ -1,0 +1,42 @@
+/* src/GamePage.css */
+
+.GamePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .scoreboard {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.25s, border-color 0.25s;
+    margin: 5px;
+  }
+  
+  button.correct {
+    background-color: #28a745; /* Green for correct answers */
+    border-color: #28a745;
+  }
+  
+  button.incorrect {
+    background-color: #dc3545; /* Red for incorrect answers */
+    border-color: #dc3545;
+  }
+  
+  .finalScore {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  

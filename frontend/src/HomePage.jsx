@@ -1,68 +1,72 @@
-// src/HomePage.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './HomePage.css'; // Import the CSS file
+import './HomePage.css';
+import { FiInfo } from 'react-icons/fi';
 
-function HomePage() {
-  const [difficulty, setDifficulty] = useState('easy'); // Default difficulty
-  const [isDifficultySelected, setIsDifficultySelected] = useState(false);
+const HomePage = () => {
+  const [difficulty, setDifficulty] = useState('easy');
+  const [highScores, setHighScores] = useState({
+    regular_easy: 0,
+    regular_medium: 0,
+    regular_hard: 0,
+  });
+  const [showInfo, setShowInfo] = useState(false);
+  
   const navigate = useNavigate();
 
-  const handleStartGame = () => {
-    navigate(`/game?difficulty=${difficulty}`);
+  useEffect(() => {
+    const regularEasyScore = localStorage.getItem('highestScore_regular_easy') || 0;
+    const regularMediumScore = localStorage.getItem('highestScore_regular_medium') || 0;
+    const regularHardScore = localStorage.getItem('highestScore_regular_hard') || 0;
+
+    setHighScores({
+      regular_easy: parseInt(regularEasyScore, 10),
+      regular_medium: parseInt(regularMediumScore, 10),
+      regular_hard: parseInt(regularHardScore, 10),
+    });
+  }, []);
+
+  const startGame = () => {
+    navigate(`/game?mode=regular&difficulty=${difficulty}`);
   };
 
-  const handleDifficultyChange = (e) => {
-    setDifficulty(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsDifficultySelected(true);
+  const toggleInfo = () => {
+    setShowInfo(!showInfo);
   };
 
   return (
     <div className="HomePage">
-      <h1>Welcome to the Geography Trivia Game</h1>
-      <p>Test your geography knowledge!</p>
-      
-      {!isDifficultySelected ? (
-        <form onSubmit={handleSubmit}>
-          <h2>Select Difficulty Level</h2>
-          <label>
-            <input
-              type="radio"
-              value="easy"
-              checked={difficulty === 'easy'}
-              onChange={handleDifficultyChange}
-            />
-            Easy
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="medium"
-              checked={difficulty === 'medium'}
-              onChange={handleDifficultyChange}
-            />
-            Medium
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="hard"
-              checked={difficulty === 'hard'}
-              onChange={handleDifficultyChange}
-            />
-            Hard
-          </label>
-          <button type="submit">Submit</button>
-        </form>
-      ) : (
-        <button onClick={handleStartGame}>Start Game</button>
+      <div className="high-scores-box">
+        <h3>High Scores</h3>
+        <p>Regular (Easy): {highScores.regular_easy}</p>
+        <p>Regular (Medium): {highScores.regular_medium}</p>
+        <p>Regular (Hard): {highScores.regular_hard}</p>
+      </div>
+
+      <div className="info-icon" onClick={toggleInfo}>
+        <FiInfo size={30} />
+      </div>
+
+      {showInfo && (
+        <div className="info-box">
+          <h4>Game Mode Information</h4>
+          <p> Try to answer questions as accurately as possible! The quicker you answer the question, the more points you will receive. There are three modes: easy, medium, and hard, which will determine the difficulty level of the questions you receive.</p>
+        </div>
       )}
+
+      <h1>GlobeTrotter Trivia</h1>
+      <h2>Trot across the glob and test your geography knowledge!</h2>
+      
+      <h2>Select Difficulty</h2>
+      <div className="difficulty-group">
+        <button onClick={() => setDifficulty('easy')}>Easy</button>
+        <button onClick={() => setDifficulty('medium')}>Medium</button>
+        <button onClick={() => setDifficulty('hard')}>Hard</button>
+      </div>
+      
+      <button onClick={startGame}>Start</button>
     </div>
   );
-}
+};
 
 export default HomePage;

@@ -24,10 +24,9 @@ const Score = mongoose.model('Score', scoreSchema);
 
 // Route to fetch geography questions based on difficulty
 app.get('/api/questions', async (req, res) => {
-  const difficulty = req.query.difficulty || 'easy'; // Default to 'easy' if not provided
 
   try {
-    const response = await axios.get(`https://opentdb.com/api.php?amount=10&category=22&difficulty=${difficulty}&type=multiple`);
+    const response = await axios.get(`https://opentdb.com/api.php?amount=50&category=22&type=multiple`);
     res.json(response.data);
   } catch (error) {
     console.error('Error fetching data:', error.message);

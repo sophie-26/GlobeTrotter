@@ -1,42 +1,85 @@
-/* src/GamePage.css */
+/* General body styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure html and body take full height */
+    width: 100%; 
+}
 
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Main container */
 .GamePage {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full height */
+    width: 100vw; /* Full width */
+    text-align: center;
+    background: linear-gradient(to bottom right, #00aaff, #00cc99); /* Blue to green gradient */
+    padding: 20px; /* Add some padding */
+    color: white; /* Set text color to white for better visibility */
+}
+
+.GamePage {
+    /* Other styles remain the same */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Adjust or remove padding if necessary */
+}
+
+.scoreboard {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     margin: 20px;
-  }
-  
-  .scoreboard {
-    margin-bottom: 20px;
-  }
-  
-  button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 1.2em;
     color: #fff;
+    background-color: #0c164e;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.25s, border-color 0.25s;
-    margin: 5px;
-  }
-  
-  button.correct {
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #004d40;
+    transform: scale(1.05);
+}
+
+button.correct {
     background-color: #28a745; /* Green for correct answers */
     border-color: #28a745;
-  }
-  
-  button.incorrect {
+}
+
+button.incorrect {
     background-color: #dc3545; /* Red for incorrect answers */
     border-color: #dc3545;
-  }
-  
-  .finalScore {
+}
+
+.finalScore {
     font-size: 1.5em;
     font-weight: bold;
+}
+.hint-icon {
+    cursor: pointer;
+    margin-left: 10px; /* Space between question and icon */
   }
   
+  .hint-wrong {
+    background-color: red;
+    color: white; /* Text color for better visibility */
+}

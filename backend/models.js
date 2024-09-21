@@ -8,4 +8,3 @@ const gameResultSchema = new mongoose.Schema({
 const GameResult = mongoose.model('GameResult', gameResultSchema);
 
 module.exports = GameResult;
-

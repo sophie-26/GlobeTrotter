@@ -11,7 +11,7 @@ It is designed to run in the browser with responsive styles for different screen
 The user earns 100 points if they get the question right within one second, and the amount
 of points they earn decrements by 5 for every additional second they take.
 
-On the frontend, React is used to create a dynamic and modular interface. The React 
+In the frontend, React is used to create a dynamic and modular interface. The React 
 component structure allows for easy management of different parts of the application, 
 such as the homepage, game screen, and high score display. I also used useEffect to manage 
 the countdown timer that resets with each new question. This 

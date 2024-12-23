@@ -19,7 +19,7 @@ reactive UI ensures that the game responds smoothly to user interactions, like
 selecting answers or using hints. Additionally, I used CSS to enhance the 
 aesthetics and usability of the game, ensuring a pleasant user experience.
 
-On the backend, the application is powered by Node.js and Express. Node.js allows the
+In the backend, the application is powered by Node.js and Express. Node.js allows the
 server to handle incoming requests from the frontend efficiently, while Express 
 allowed me to define routes. The backend is responsible for serving trivia questions
  and processing the results of each game session.

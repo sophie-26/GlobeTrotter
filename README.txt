@@ -29,15 +29,5 @@ sessions.
 
 ### Reflection:
 This project allowed me to explore both technical coding and creativity aspect of user interface design. 
-While building this project, I gained a deeper understanding of React's state management, especially with regards to the timer and localStorage 
-for high scores. I enjoyed implementing the scoring system and integrating hints, 
-which required strategic manipulation of state. If given more time, I would take advantage of the
- Globe aspect of the home page and implement an option for users to select specific geographic 
- regions. I would also add more animation to improve the user experience.
-
-### Challenges:
-Initially, I implemented two modes of the game: Regular mode and Speed mode. 
-The Regular mode is the same as the current version of the game, while the 
-Speed mode gives the user 60 seconds to answer as many questions as possible from all
-levels of difficulty. However, I ran into issues trying to store and update the highest score for 
-the Speed mode using LocalStorage. If given more time, I would definitely continue working on this as well.
+While building this project, I gained a deeper understanding of React's state management, especially with regards to the timer and localStorage for high scores. I enjoyed implementing the scoring system and integrating hints, 
+which required strategic manipulation of state. 

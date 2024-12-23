@@ -24,10 +24,7 @@ server to handle incoming requests from the frontend efficiently, while Express
 allowed me to define routes. The backend is responsible for serving trivia questions
  and processing the results of each game session.
 
-I also used MongoDB to store trivia questions and high scores. I used Mongoose to fetch questions of a 
-specific difficulty level and to save user scores at the end of each game session.
-
-Lastly, LocalStorage is utilized on the frontend to store high scores between user 
+LocalStorage is utilized on the frontend to store high scores between user 
 sessions.
 
 ### Reflection:
